@@ -379,6 +379,18 @@ ReflectionProbe:
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
+--- !u!1 &501156685 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1810487144520308, guid: 2276723046d707c4f94d431ceb80ab92,
+    type: 3}
+  m_PrefabInstance: {fileID: 907450514}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &511374063 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1721786507550062, guid: 2276723046d707c4f94d431ceb80ab92,
+    type: 3}
+  m_PrefabInstance: {fileID: 907450514}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &599298530
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -823,6 +835,8 @@ GameObject:
   - component: {fileID: 775719283}
   - component: {fileID: 775719282}
   - component: {fileID: 775719284}
+  - component: {fileID: 775719286}
+  - component: {fileID: 775719285}
   m_Layer: 0
   m_Name: GlobalScripts
   m_TagString: Untagged
@@ -869,6 +883,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a8f844d1e2cdd4ab5b37c58812b4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &775719285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775719281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81dc33a21758b384586807f3656587d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _displayInGameView: 1
+  _enabledForBuild: 1
+  _sphereMesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  _gizmoShader: {fileID: 4800000, guid: 309635e4933310a4d98f0e016c806769, type: 3}
+--- !u!114 &775719286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775719281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b003e17538cfb4a9a2883c7320dd52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fingertips:
+  - {fileID: 511374063}
+  - {fileID: 1805947255}
+  - {fileID: 501156685}
 --- !u!1 &856311228
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,6 +959,10 @@ PrefabInstance:
     - target: {fileID: 1404367628755344, guid: 2276723046d707c4f94d431ceb80ab92, type: 3}
       propertyPath: m_Name
       value: LoPoly Rigged Hand Right
+      objectReference: {fileID: 0}
+    - target: {fileID: 1721786507550062, guid: 2276723046d707c4f94d431ceb80ab92, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4111511758846408, guid: 2276723046d707c4f94d431ceb80ab92, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1903,14 +1953,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11500000, guid: e6a8f844d1e2cdd4ab5b37c58812b4ff, type: 3}
-        m_MethodName: 
-        m_Mode: 1
+        m_MethodName: set_name
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: asd
           m_BoolArgument: 0
         m_CallState: 1
   OnDeactivate:
@@ -1936,6 +1986,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0625e574c0d47a241b7dfc7a8c67ca2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1805947255 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1323349540771314, guid: 2276723046d707c4f94d431ceb80ab92,
+    type: 3}
+  m_PrefabInstance: {fileID: 907450514}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1845063048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2106,6 +2162,16 @@ PrefabInstance:
     - target: {fileID: 4822923098130148, guid: 33edf201cbc6fe645ad9078697cd2aea, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114892109605653334, guid: 33edf201cbc6fe645ad9078697cd2aea,
+        type: 3}
+      propertyPath: _drawControllerRuntimeGizmos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114892109605653334, guid: 33edf201cbc6fe645ad9078697cd2aea,
+        type: 3}
+      propertyPath: _interactionControllers._values.Array.size
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33edf201cbc6fe645ad9078697cd2aea, type: 3}
