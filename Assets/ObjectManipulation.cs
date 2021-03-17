@@ -12,8 +12,9 @@ public class ObjectManipulation : MonoBehaviour {
 
 	
 	//Called when Button is clicked
-	public static void debugPress() {
+	int debugPress() {
 	Debug.Log("Pressed");
+	return 1;
 	
 	}
 }

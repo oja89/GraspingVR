@@ -17,7 +17,7 @@ public class FingerTipFinder : MonoBehaviour
     }
 	
 	
-	public void OnCollisionEnter(Collision c)
+	public void OnTriggerEnter(Collider	c)
 	{
 		Debug.Log("Collision");
 	}

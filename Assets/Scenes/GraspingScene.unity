@@ -393,6 +393,32 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 907450514}
   m_PrefabAsset: {fileID: 0}
+--- !u!135 &511374065
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511374063}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &511374066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511374063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b003e17538cfb4a9a2883c7320dd52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fingertips: []
 --- !u!1001 &599298530
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -908,7 +934,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 775719281}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23b003e17538cfb4a9a2883c7320dd52, type: 3}
   m_Name: 
@@ -1946,7 +1972,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593989230}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c057ae8396c1146c98a146b81dcc5870, type: 3}
   m_Name: 
@@ -1954,9 +1980,9 @@ MonoBehaviour:
   OnActivate:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: e6a8f844d1e2cdd4ab5b37c58812b4ff, type: 3}
-        m_MethodName: set_name
-        m_Mode: 5
+      - m_Target: {fileID: 775719284}
+        m_MethodName: WriteLog
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1969,12 +1995,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   Period: 0.1
-  HandModel: {fileID: 0}
+  HandModel: {fileID: 1593989233}
   PointingType: 1
   PointingDirection: {x: 0, y: 0, z: 1}
   TargetObject: {fileID: 0}
-  OnAngle: 45
-  OffAngle: 65
+  OnAngle: 180
+  OffAngle: 180
   ShowGizmos: 1
 --- !u!114 &1626780405 stripped
 MonoBehaviour:
