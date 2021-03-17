@@ -15,8 +15,12 @@ public class DebugWrite : MonoBehaviour
     {
         //Debug.Log ("Update DEBUG");
     }
-	public void WriteLog() 
+	public void FingerTip() 
 	{
-		Debug.Log ("WriteLog");
+		Debug.Log ("FingerTip");
+	}
+	public void ButtonPress() 
+	{
+		Debug.Log ("ButtonPress");
 	}
 }

@@ -1,0 +1,35 @@
+﻿using UnityEngine;
+using UnityEngine.UI;
+using System.Linq;
+using Leap.Unity.Interaction;
+
+
+
+public class ObjectManipulation : MonoBehaviour {
+	
+	// UI dragging place for object
+	[SerializeField]	
+	GameObject objectToReset;
+	
+	Vector3 orgPosition;
+	Vector3 orgVelocity;
+	Vector3 orgAngVel;
+
+	void Start()
+	{
+		
+		orgPosition = objectToReset.transform.position;
+		orgVelocity = objectToReset.GetComponent<Rigidbody>().velocity;
+		orgAngVel = objectToReset.GetComponent<Rigidbody>().angularVelocity;
+		var debug = objectToReset.name;
+		
+		Debug.Log(debug);
+	}
+	
+	public void ResetPos()
+	{
+		objectToReset.transform.position = orgPosition;
+		objectToReset.GetComponent<Rigidbody>().velocity = orgVelocity;
+		objectToReset.GetComponent<Rigidbody>().angularVelocity = orgAngVel;
+	}
+}
