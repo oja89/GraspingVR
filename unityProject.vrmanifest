@@ -5,7 +5,11 @@
       "app_key": "application.generated.unity.hapticgrasping.exe",
       "launch_type": "url",
       "url": "steam://launch/",
+<<<<<<< Updated upstream
       "action_manifest_path": "D:\\Unity\\Projects\\HapticGrasping\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+=======
+      "action_manifest_path": "C:\\Users\\raine\\Documents\\unity project\\GraspingVR\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+>>>>>>> Stashed changes
       "strings": {
         "en_us": {
           "name": "HapticGrasping [Testing]"
