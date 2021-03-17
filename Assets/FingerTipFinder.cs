@@ -19,7 +19,8 @@ public class FingerTipFinder : MonoBehaviour
 	
 	public void OnTriggerEnter(Collider	c)
 	{
-		Debug.Log("Collision");
+		var coll = c.name;
+		Debug.Log("Collision " + coll);
 	}
 
     // Update is called once per frame
