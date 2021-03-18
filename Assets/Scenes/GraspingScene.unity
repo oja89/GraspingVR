@@ -963,6 +963,7 @@ GameObject:
   - component: {fileID: 775719283}
   - component: {fileID: 775719282}
   - component: {fileID: 775719284}
+  - component: {fileID: 775719285}
   m_Layer: 0
   m_Name: GlobalScripts
   m_TagString: Untagged
@@ -982,14 +983,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e25bd8132ed834b8175da40422b02b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myObjects:
+  objectsToReset:
   - {fileID: 1276491422}
-  - {fileID: 1996871542961599776}
   - {fileID: 4825570463304082661}
+  - {fileID: 1996871542961599776}
   - {fileID: 7618251167069429044}
-  orgPosition: []
-  orgVelocity: []
-  orgAngVel: []
 --- !u!4 &775719283
 Transform:
   m_ObjectHideFlags: 0
@@ -1016,6 +1014,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a8f844d1e2cdd4ab5b37c58812b4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &775719285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775719281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207c97f4da07f3147970d9ac920fedfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key1: a
+  _OnKey1:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 775719282}
+        m_MethodName: ResetPos
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  key2: s
+  _OnKey2:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 775719284}
+        m_MethodName: FingerTip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!1 &856311228
 GameObject:
   m_ObjectHideFlags: 0

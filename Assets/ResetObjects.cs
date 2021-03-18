@@ -5,10 +5,10 @@ using Leap.Unity.Interaction;
 
 
 
-public class ObjectManipulation : MonoBehaviour {
+public class ResetObjects : MonoBehaviour {
 	
 	// UI dragging place for objects
-	public GameObject[] myObjects;
+	public GameObject[] objectsToReset;
 		
 	// initialize arrays for values
 	Vector3[] orgPosition;
@@ -18,29 +18,28 @@ public class ObjectManipulation : MonoBehaviour {
 	void Start()
 	{
 		// arrays for values to be saved
-		orgPosition = new Vector3[myObjects.Length];
-		orgVelocity = new Vector3[myObjects.Length];
-		orgAngVel = new Vector3[myObjects.Length];
+		orgPosition = new Vector3[objectsToReset.Length];
+		orgVelocity = new Vector3[objectsToReset.Length];
+		orgAngVel = new Vector3[objectsToReset.Length];
 		
-		for(int i = 0; i <=  myObjects.Length -1; i++)
+		for(int i = 0; i <=  objectsToReset.Length -1; i++)
 		{
-			GameObject modding = myObjects[i];
-			var debug = modding.name;
-			orgPosition[i] = modding.transform.position;
-			orgVelocity[i] = modding.GetComponent<Rigidbody>().velocity;
-			orgAngVel[i] = modding.GetComponent<Rigidbody>().angularVelocity;
+			var debug = objectsToReset[i].name;
+			orgPosition[i] = objectsToReset[i].transform.position;
+			orgVelocity[i] = objectsToReset[i].GetComponent<Rigidbody>().velocity;
+			orgAngVel[i] = objectsToReset[i].GetComponent<Rigidbody>().angularVelocity;
 			Debug.Log(debug + " start position saved");
 		}
 	}
 	
 	public void ResetPos()
 	{
-		for(int i = 0; i <=  myObjects.Length -1; i++)
+		for(int i = 0; i <=  objectsToReset.Length -1; i++)
 		{
-			var debug = myObjects[i].name;
-			myObjects[i].transform.position = orgPosition[i];
-			myObjects[i].GetComponent<Rigidbody>().velocity = orgVelocity[i];
-			myObjects[i].GetComponent<Rigidbody>().angularVelocity = orgAngVel[i];
+			var debug = objectsToReset[i].name;
+			objectsToReset[i].transform.position = orgPosition[i];
+			objectsToReset[i].GetComponent<Rigidbody>().velocity = orgVelocity[i];
+			objectsToReset[i].GetComponent<Rigidbody>().angularVelocity = orgAngVel[i];
 			Debug.Log(debug + " position reset");
 		}
 	}
