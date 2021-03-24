@@ -8,7 +8,8 @@ public class FingerDetection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+		// test connection to another object
+        gameObject.GetComponent<DebugWrite>().AnotherTest(this.name);
     }
 
 	public void OnTriggerEnter(Collider other)

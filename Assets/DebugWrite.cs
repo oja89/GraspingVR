@@ -15,12 +15,19 @@ public class DebugWrite : MonoBehaviour
     {
         //Debug.Log ("Update DEBUG");
     }
+	
 	public void FingerTip() 
 	{
 		Debug.Log ("FingerTip");
 	}
+	
 	public void ButtonPress() 
 	{
 		Debug.Log ("ButtonPress");
+	}
+	
+	public void AnotherTest(string nameOfCaller)
+	{
+		Debug.Log(nameOfCaller);
 	}
 }
