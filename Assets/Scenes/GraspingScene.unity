@@ -1050,8 +1050,8 @@ MonoBehaviour:
   _OnKey2:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 775719284}
-        m_MethodName: FingerTip
+      - m_Target: {fileID: 252025632}
+        m_MethodName: DebugThis
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
