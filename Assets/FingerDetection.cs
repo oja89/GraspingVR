@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FingerDetection : MonoBehaviour
 // Give this script to all fingertips
@@ -16,7 +17,7 @@ public class FingerDetection : MonoBehaviour
 
     }
 
-	public void DebugThis()
+	public void DebugThis(int direction)
 	{	
 		// prints many rows, lets try to reduce activations
 		if (lastTime + delay > Time.unscaledTime)
@@ -34,9 +35,12 @@ public class FingerDetection : MonoBehaviour
 		
 		// get DataToGlove object
 		GameObject dtg = GameObject.Find("DataToGlove");
-		dtg.GetComponent<Output>().Vibrate(this.name);
-	
 		
+		// lets try turning it on and off too...
+		//int direction = 1;
+		// get dir from call instead
+		
+		dtg.GetComponent<Output>().Vibrate(this.name, direction);
 	}
 
 	public void OnTriggerEnter(Collider other)
@@ -47,12 +51,22 @@ public class FingerDetection : MonoBehaviour
 		
 		// get DataToGlove object
 		GameObject dtg = GameObject.Find("DataToGlove");
-		dtg.GetComponent<Output>().Vibrate(this.name);
+		
+		// direction is ON
+		int direction = 1; 
+		dtg.GetComponent<Output>().Vibrate(this.name, direction );
 	}
 	
 	public void OnTriggerExit(Collider other)
 	{
 		Debug.Log(this.name + " no longer touches " + other.name);
+		
+		// get DataToGlove object
+		GameObject dtg = GameObject.Find("DataToGlove");
+		
+		// direction is OFF
+		int direction = 0; 
+		dtg.GetComponent<Output>().Vibrate(this.name, direction);
 	}
 	
     // Update is called once per frame

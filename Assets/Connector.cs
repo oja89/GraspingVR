@@ -11,15 +11,21 @@ using System.Collections;
 public class Connector : MonoBehaviour
 // used to connect VR events to Feedback module
 {	// key1 for ...
-	public string key1;
+	//public string key1;	[SerializeField]
+	public KeyCode key1 = KeyCode.A;
 	[SerializeField]
     private UnityEvent _OnKey1 = new UnityEvent();
 	public Action OnKey1 = () => { };
 	
-	public string key2;	[SerializeField]
+	public KeyCode key2 = KeyCode.S;
+	[SerializeField]
     private UnityEvent _OnKey2 = new UnityEvent();
 	public Action OnKey2 = () => { };
 
+	public KeyCode key3 = KeyCode.D;
+	[SerializeField]
+    private UnityEvent _OnKey3 = new UnityEvent();
+	public Action OnKey3 = () => { };
 
 
     // Start is called before the first frame update
@@ -27,6 +33,7 @@ public class Connector : MonoBehaviour
     {
         OnKey1 += _OnKey1.Invoke;
 		OnKey2 += _OnKey2.Invoke;
+		OnKey3 += _OnKey3.Invoke;
     }
 
     // Update is called once per frame
@@ -39,6 +46,10 @@ public class Connector : MonoBehaviour
 		if (Input.GetKey(key2))
 		{
 			OnKey2();
+		}
+		if (Input.GetKey(key3))
+		{
+			OnKey3();
 		}
     }
 }
