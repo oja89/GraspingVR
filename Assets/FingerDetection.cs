@@ -4,12 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class FingerDetection : MonoBehaviour
-// Give this script to all fingertips
+// Remember to give this script to all fingertips
 {
 	// delaying outputs (so not activating every frame)
 	// https://forum.unity.com/threads/how-to-add-delay-on-button-press.540609/
 	float lastTime;
 	float delay = 0.5f;
+	// ^^ those should not be for fingers, only for keys (?)^^
+	
+	
 	
     // Start is called before the first frame update
     void Start()
@@ -19,6 +22,8 @@ public class FingerDetection : MonoBehaviour
 
 	public void DebugThis(int direction)
 	{	
+		// a function to test stuff, not to be used in final demo
+	
 		// prints many rows, lets try to reduce activations
 		if (lastTime + delay > Time.unscaledTime)
 			return;

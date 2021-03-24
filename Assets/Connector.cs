@@ -9,6 +9,9 @@ using System.Collections;
 
 
 public class Connector : MonoBehaviour
+// a module for testing and troubleshooting
+// not to be used in final demo
+
 // used to connect VR events to Feedback module
 {	// key1 for ...
 	//public string key1;	[SerializeField]

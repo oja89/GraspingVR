@@ -5,11 +5,10 @@ using UnityEngine;
 
 public class Output : MonoBehaviour
 {
-	// Maybe an array for finger vibration statuses?
-	// lets change the text on wall too
+	// the text on wall, fill with dictionary
 	string textArray = "Emptytext";
 
-	// dictionary?
+	// dictionary for finger vibration statuses
 	Dictionary<string, int> fingers = new Dictionary<string, int>()
 	{
 		{"R_thumb_end", 0},
@@ -39,72 +38,27 @@ public class Output : MonoBehaviour
 			{
 				textArray += key.Key + " " + key.Value + "\n";
 			};
-		
-		
-		//textArray.concat+ = "R1: " + fingers["R1"] + "\n" +
-				//	 "L1: " + fingers["L1"] + "\n" +
-					//	"L2: " + fingers["L2"];
-		
-		
-		
-        // updating every frame, not the best idea...
+
+        // updating every frame, maybe not the best idea...
 		GameObject infoTxt = GameObject.Find("Text");
 		infoTxt.GetComponent<UnityEngine.UI.Text>().text = textArray;
 		
+		// should this call arduino now, with the values for each finger?
+		// or vibrate() ?
 		
     }
 	
 	public void Vibrate(string caller, int direction)
 	{
-		Debug.Log("Please vibrate " + caller);
+		// change value in the dictionary
+		fingers[caller] = direction;
+		if (direction == 1) { 
+			Debug.Log("Please vibrate " + caller);
+		}
+		else Debug.Log("Stop vibrating " + caller);
 		
-		//if (caller == "L_index_end")
-			//Debug.Log("it was L-index");		
 		
-		string theFinger = "";
+		// call for change in arduino?
 		
-		theFinger = caller;
-		
-		// switch case detection for finger
-		// (hardcoded for now at least)
-		/* switch (caller)
-		{
-			case "L_thumb_end":
-				Debug.Log("L1");
-				fingers["L1"] = direction;
-				break;
-			case "L_index_end":
-
-				theFinger = "L2";
-				break;
-			case "L_middle_end":
-				Debug.Log("L3");
-				break;
-			case "L_ring_end":
-				Debug.Log("L4");
-				break;
-			case "L_pinky_end":
-				Debug.Log("L5");
-				break;
-			case "R_thumb_end":
-				Debug.Log("R1");
-				break;
-			case "R_index_end":
-				Debug.Log("R2");
-				break;
-			case "R_middle_end":
-				Debug.Log("R3");
-				break;
-			case "R_ring_end":
-				Debug.Log("R4");
-				break;
-			case "R_pinky_end":
-				Debug.Log("R5");
-				break;		
-		} */
-		
-		// Apply the change and log it
-		Debug.Log(theFinger);
-		fingers[theFinger] = direction;
 	}
 }
