@@ -13,12 +13,14 @@ public class FingerDetection : MonoBehaviour
     }
 	
 	public void DebugThis()
-	{
-		string thisName = this.name;
+	{	
 		// test connection to another object
-		Debug.Log(thisName);
-		//gameObject.GetComponent<DebugWrite>().AnotherTest(thisName);
-
+		string thisName = this.name;
+		//Debug.Log(thisName);
+		
+		//get object of GlobalScripts
+		GameObject gs = GameObject.Find("GlobalScripts");
+		gs.GetComponent<DebugWrite>().AnotherTest(thisName);
 	}
 
 	public void OnTriggerEnter(Collider other)
