@@ -5,15 +5,32 @@ using UnityEngine;
 public class FingerDetection : MonoBehaviour
 // Give this script to all fingertips
 {
+	// delaying outputs (so not activating every frame)
+	// https://forum.unity.com/threads/how-to-add-delay-on-button-press.540609/
+	float lastTime;
+	float delay = 0.5f;
+
+	
+	
+	
     // Start is called before the first frame update
     void Start()
     {
 		
         
     }
-	
+
+
+
 	public void DebugThis()
 	{	
+		// prints many rows, lets try to reduce activations
+		
+		if (lastTime + delay > Time.unscaledTime)
+			return;
+		lastTime = Time.unscaledTime;
+		
+		
 		// test connection to another object
 		string thisName = this.name;
 		//Debug.Log(thisName);
@@ -21,6 +38,11 @@ public class FingerDetection : MonoBehaviour
 		//get object of GlobalScripts
 		GameObject gs = GameObject.Find("GlobalScripts");
 		gs.GetComponent<DebugWrite>().AnotherTest(thisName);
+		
+		
+
+		
+		
 	}
 
 	public void OnTriggerEnter(Collider other)
