@@ -8,6 +8,9 @@ public class Output : MonoBehaviour
 	// the text on wall, fill with dictionary
 	string textArray = "Emptytext";
 
+	// Serial port initialization for communicating with Arduino
+	private static SerialPort sp = new SerialPort("COM3", 9600);
+
 	// dictionary for finger vibration statuses
 	Dictionary<string, int> fingers = new Dictionary<string, int>()
 	{
@@ -27,7 +30,7 @@ public class Output : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		
+		OpenConnection();
     }
 
     // Update is called once per frame
@@ -56,9 +59,50 @@ public class Output : MonoBehaviour
 			Debug.Log("Please vibrate " + caller);
 		}
 		else Debug.Log("Stop vibrating " + caller);
-		
-		
-		// call for change in arduino?
-		
+
+
+		// Vibrates index finger
+		if (caller == "L_index_end" && direction == 1)
+		{
+			// <thumb,index,middle>, values are vibration power
+			// Do not exceed 150!!
+			sp.Write("<0,100,0>");
+		}
+		// Stops vibrating index finger
+		else if (caller == "L_index_end" && direction == 0)
+		{
+			sp.Write("<0,0,0>");
+		}
+	}
+
+	// Opens connection to sp serial port
+	public void OpenConnection()
+	{
+		if (sp != null)
+		{
+			if (sp.IsOpen)
+			{
+				sp.Close();
+				print("Port was already open");
+			}
+			else
+			{
+				sp.Open(); //opening connection
+				sp.ReadTimeout = 16;
+				print("port opened");
+			}
+
+		}
+		else
+		{
+			if (sp.IsOpen)
+			{
+				print("Port is already open");
+			}
+			else
+			{
+				print("Port == null");
+			}
+		}
 	}
 }
