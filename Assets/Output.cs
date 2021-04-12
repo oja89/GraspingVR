@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO.Ports;
 using UnityEngine;
 
 public class Output : MonoBehaviour
 {
 	// the text on wall, fill with dictionary
 	string textArray = "Emptytext";
-
-	// Serial port initialization for communicating with Arduino
-	private static SerialPort sp = new SerialPort("COM3", 9600);
 
 	// dictionary for finger vibration statuses
 	Dictionary<string, int> fingers = new Dictionary<string, int>()
@@ -25,13 +23,14 @@ public class Output : MonoBehaviour
 		{"L_ring_end", 0},
 		{"L_pinky_end", 0}
 	};
-	
-	
-    // Start is called before the first frame update
-    void Start()
+
+	private static SerialPort sp = new SerialPort("COM3", 9600);
+
+	// Start is called before the first frame update
+	void Start()
     {
 		OpenConnection();
-    }
+	}
 
     // Update is called once per frame
     void Update()
@@ -45,37 +44,66 @@ public class Output : MonoBehaviour
         // updating every frame, maybe not the best idea...
 		GameObject infoTxt = GameObject.Find("Text");
 		infoTxt.GetComponent<UnityEngine.UI.Text>().text = textArray;
-		
+
 		// should this call arduino now, with the values for each finger?
 		// or vibrate() ?
-		
-    }
+
+		//string Rindex = fingers["R_index_end"].ToString();
+		//string Rmiddle = fingers["R_middle_end"].ToString();
+		//string Rthumb = fingers["R_thumb_end"].ToString();
+		//string message = "<" + Rthumb + "," + Rindex + "," + Rmiddle + ">";
+		//sp.Write(message);
+
+	}
 	
 	public void Vibrate(string caller, int direction)
 	{
 		// change value in the dictionary
 		fingers[caller] = direction;
-		if (direction == 1) { 
+		SetVibrations();
+
+		/*
+		if (direction == 100) { 
 			Debug.Log("Please vibrate " + caller);
 		}
 		else Debug.Log("Stop vibrating " + caller);
 
 
-		// Vibrates index finger
-		if (caller == "L_index_end" && direction == 1)
-		{
-			// <thumb,index,middle>, values are vibration power
-			// Do not exceed 150!!
+		// call for change in arduino?
+		if(caller == "L_index_end" && direction == 100)
+        {
 			sp.Write("<0,100,0>");
 		}
-		// Stops vibrating index finger
-		else if (caller == "L_index_end" && direction == 0)
-		{
+		else if(caller == "L_index_end" && direction == 0)
+        {
 			sp.Write("<0,0,0>");
 		}
+		
+		else if(caller == "L_middle_end")
+        {
+			sp.Write("<0,0,100>");
+        }
+		else if(caller == "L_thumb_end")
+        {
+			sp.Write("<100,0,0>");
+        }*/
+
+		
 	}
 
-	// Opens connection to sp serial port
+	public void SetVibrations()
+    {
+		// get values from dict and send to arduino
+		string Rindex = fingers["R_index_end"].ToString();
+		string Rmiddle = fingers["R_middle_end"].ToString();
+		string Rthumb = fingers["R_thumb_end"].ToString();
+		string message = "<" + Rthumb + "," + Rindex + "," + Rmiddle + ">";
+		sp.Write(message);
+	}
+
+
+
+
 	public void OpenConnection()
 	{
 		if (sp != null)

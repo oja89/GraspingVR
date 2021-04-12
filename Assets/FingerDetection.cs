@@ -58,7 +58,8 @@ public class FingerDetection : MonoBehaviour
 		GameObject dtg = GameObject.Find("DataToGlove");
 		
 		// direction is ON
-		int direction = 1; 
+		//int direction = 1;
+		int direction = 100;
 		dtg.GetComponent<Output>().Vibrate(this.name, direction );
 	}
 	
