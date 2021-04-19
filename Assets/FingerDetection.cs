@@ -20,7 +20,7 @@ public class FingerDetection : MonoBehaviour
 
     }
 
-	public void DebugThis(int direction)
+	public void DebugThis(int power)
 	{	
 		// a function to test stuff, not to be used in final demo
 	
@@ -42,10 +42,10 @@ public class FingerDetection : MonoBehaviour
 		GameObject dtg = GameObject.Find("DataToGlove");
 		
 		// lets try turning it on and off too...
-		//int direction = 1;
+		//int power = 1;
 		// get dir from call instead
 		
-		dtg.GetComponent<Output>().Vibrate(this.name, direction);
+		dtg.GetComponent<Output>().Vibrate(this.name, power);
 	}
 
 	public void OnTriggerEnter(Collider other)
@@ -57,10 +57,10 @@ public class FingerDetection : MonoBehaviour
 		// get DataToGlove object
 		GameObject dtg = GameObject.Find("DataToGlove");
 		
-		// direction is ON
-		//int direction = 1;
-		int direction = 100;
-		dtg.GetComponent<Output>().Vibrate(this.name, direction );
+		// power is ON
+		//int power = 1;
+		int power = 60;
+		dtg.GetComponent<Output>().Vibrate(this.name, power );
 	}
 	
 	public void OnTriggerExit(Collider other)
@@ -70,9 +70,9 @@ public class FingerDetection : MonoBehaviour
 		// get DataToGlove object
 		GameObject dtg = GameObject.Find("DataToGlove");
 		
-		// direction is OFF
-		int direction = 0; 
-		dtg.GetComponent<Output>().Vibrate(this.name, direction);
+		// power is OFF
+		int power = 0; 
+		dtg.GetComponent<Output>().Vibrate(this.name, power);
 	}
 	
     // Update is called once per frame

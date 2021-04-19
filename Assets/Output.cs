@@ -56,10 +56,10 @@ public class Output : MonoBehaviour
 
 	}
 	
-	public void Vibrate(string caller, int direction)
+	public void Vibrate(string caller, int power)
 	{
 		// change value in the dictionary
-		fingers[caller] = direction;
+		fingers[caller] = power;
 		SetVibrations();
 
 		/*
@@ -70,11 +70,11 @@ public class Output : MonoBehaviour
 
 
 		// call for change in arduino?
-		if(caller == "L_index_end" && direction == 100)
+		if(caller == "L_index_end" && power == 100)
         {
 			sp.Write("<0,100,0>");
 		}
-		else if(caller == "L_index_end" && direction == 0)
+		else if(caller == "L_index_end" && power == 0)
         {
 			sp.Write("<0,0,0>");
 		}
