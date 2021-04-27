@@ -17,8 +17,14 @@ public class FingerDetection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		// get DataToGlove object
+		//GameObject dtg = GameObject.Find("DataToGlove");
 
-    }
+		// reset vibrations on start
+		//dtg.GetComponent<Output>().SetVibrations();
+
+
+	}
 
 	public void DebugThis(int power)
 	{	
@@ -59,7 +65,7 @@ public class FingerDetection : MonoBehaviour
 		
 		// power is ON
 		//int power = 1;
-		int power = 60;
+		int power = 75;
 		dtg.GetComponent<Output>().Vibrate(this.name, power );
 	}
 	

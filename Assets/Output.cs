@@ -96,8 +96,21 @@ public class Output : MonoBehaviour
 		// get values from dict and send to arduino
 		string Rindex = fingers["R_index_end"].ToString();
 		string Rmiddle = fingers["R_middle_end"].ToString();
-		string Rthumb = fingers["R_thumb_end"].ToString();
+        string Rthumb = fingers["R_thumb_end"].ToString();
+
+		// strings for left handed use
+		string Lindex = fingers["L_index_end"].ToString();
+		string Lmiddle = fingers["L_middle_end"].ToString();
+		string Lthumb = fingers["L_thumb_end"].ToString();
+
+
+
+
+		// right hand
 		string message = "<" + Rthumb + "," + Rindex + "," + Rmiddle + ">";
+		// left hand
+		//string message = "<" + Lthumb + "," + Lindex + "," + Lmiddle + ">";
+		
 		sp.Write(message);
 	}
 
